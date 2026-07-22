@@ -6,8 +6,8 @@ public class motor_modelo {
 
     //Constructor
     public motor_modelo(String tipo_motor, String num_motor) {
-        this.tipo_motor = tipo_motor;
-        this.num_motor = num_motor;
+        setTipo_motor(tipo_motor);
+        setNum_motor(num_motor);
     }
 
     //Getters
@@ -20,9 +20,19 @@ public class motor_modelo {
     
     //Setters
     public void setTipo_motor(String tipo_motor) {
+        if (tipo_motor == null) {
+            throw new IllegalArgumentException("Tipo de motor invalido: no puede ser nulo.");
+        }
+        String tipoLower = tipo_motor.trim().toLowerCase();
+        if (!tipoLower.equals("gasolina") && !tipoLower.equals("diesel") && !tipoLower.equals("electrico")) {
+            throw new IllegalArgumentException("Tipo de motor invalido: debe ser Gasolina, Diesel o Electrico.");
+        }
         this.tipo_motor = tipo_motor;
     }
     public void setNum_motor(String num_motor) {
+        if (num_motor == null || num_motor.trim().isEmpty()) {
+            throw new IllegalArgumentException("Numero de motor invalido: no puede estar vacio.");
+        }
         this.num_motor = num_motor;
     }
 
