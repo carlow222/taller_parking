@@ -1,0 +1,15 @@
+# Ignorar archivos compilados de Java
+*.class
+
+# Carpetas de construccion y configuracion de IDEs
+bin/
+build/
+.settings/
+.vscode/
+.idea/
+.classpath
+.project
+
+# Archivos temporales o del sistema operativo
+.DS_Store
+Thumbs.db
